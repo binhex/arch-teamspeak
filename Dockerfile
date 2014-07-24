@@ -29,10 +29,10 @@ EXPOSE 10011
 #################
 
 # change owner
-RUN chown -R nobody:users /usr/bin/teamspeak3-server
+RUN chown -R nobody:users /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/
 
 # set permissions
-RUN chmod -R 775 /usr/bin/teamspeak3-server
+RUN chmod -R 775 /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/
 
 # add conf file
 ###############
