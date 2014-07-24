@@ -29,15 +29,10 @@ EXPOSE 10011
 #################
 
 # change owner
-RUN chown -R nobody:users /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/
+RUN chown -R nobody:users /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/ /var/lib/teamspeak3-server/
 
 # set permissions
-RUN chmod -R 775 /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/
-
-# add conf file
-###############
-
-ADD teamspeak.conf /etc/supervisor/conf.d/teamspeak.conf
+RUN chmod -R 775 /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/ /var/lib/teamspeak3-server/
 
 # cleanup
 #########
@@ -50,6 +45,9 @@ RUN rm -rf /tmp/*
 
 # run supervisor
 ################
+
+# add supervisor file for application
+ADD teamspeak.conf /etc/supervisor/conf.d/teamspeak.conf
 
 # run supervisor
 CMD ["supervisord", "-c", "/etc/supervisor.conf", "-n"]
