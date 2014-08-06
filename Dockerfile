@@ -10,8 +10,11 @@ RUN pacman -Sy --noconfirm
 # run packer to install application
 RUN packer -S teamspeak3-server --noconfirm
 
-# required for nobody user to find sql scripts
-RUN cd /usr/share/teamspeak3-server/sql/
+# add teamspeak script for application (custom script required to cd to sql lib)
+ADD teamspeak.sh /usr/bin/teamspeak.sh
+
+# set script as executable
+RUN chmod +x /usr/bin/teamspeak.sh
 
 # docker settings
 #################
