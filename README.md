@@ -21,6 +21,14 @@ Please replace all user variables in the above command defined by <> with the co
 
 **Access application**
 
+Connect using TeamSpeak client with the following details
+
 ```
-Connect using TeamSpeak client on host ip with port 9987
+<host ip>:9987
+```
+
+To authenticate use the privilege key shown in the logs using the following command
+
+```
+docker logs <container name>
 ```
