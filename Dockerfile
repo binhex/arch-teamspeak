@@ -22,15 +22,6 @@ RUN chmod +x /usr/bin/teamspeak.sh
 # map /config to host defined config path (used to store configuration from app)
 VOLUME /config
 
-# expose default voice port (udp)
-EXPOSE 9987/udp
-
-# expose file transfer port
-EXPOSE 30033
-
-# expose query port
-EXPOSE 10011
-
 # set permissions
 #################
 
