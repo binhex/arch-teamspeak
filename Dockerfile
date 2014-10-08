@@ -1,4 +1,4 @@
-FROM binhex/arch-base:2014091500
+FROM binhex/arch-base:2014100603
 MAINTAINER binhex
 
 # install application
@@ -34,8 +34,8 @@ RUN chmod -R 775 /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/ /v
 # cleanup
 #########
 
-# remove base dev tools - used for AUR package compilation
-RUN pacman -Rs base-devel --noconfirm
+# remove unneeded apps from base-devel group - used for AUR package compilation
+RUN pacman -Ru base-devel --noconfirm
 
 # completely empty pacman cache folder
 RUN pacman -Scc --noconfirm
