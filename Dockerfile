@@ -4,11 +4,11 @@ MAINTAINER binhex
 # additional files
 ##################
 
+# add supervisor conf file for app
+ADD *.conf /etc/supervisor/conf.d/
+
 # add teamspeak script for application (custom script required to cd to sql lib)
 ADD teamspeak.sh /home/nobody/teamspeak.sh
-
-# add supervisor conf file for app
-ADD teamspeak.conf /etc/supervisor/conf.d/teamspeak.conf
 
 # add install bash script
 ADD install.sh /root/install.sh
@@ -20,7 +20,7 @@ ADD packer.sh /root/packer.sh
 #############
 
 # make executable and run bash scripts to install app
-RUN chmod +x /root/install.sh /root/packer.sh /home/nobody/teamspeak.sh && \
+RUN chmod +x /root/*.sh /home/nobody/*.sh && \
 	/bin/bash /root/install.sh
 
 # docker settings
