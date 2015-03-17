@@ -8,7 +8,7 @@ MAINTAINER binhex
 ADD *.conf /etc/supervisor/conf.d/
 
 # add teamspeak script for application (custom script required to cd to sql lib)
-ADD teamspeak.sh /home/nobody/teamspeak.sh
+ADD start.sh /home/nobody/start.sh
 
 # add install bash script
 ADD install.sh /root/install.sh
