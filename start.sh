@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# create variables for installation path of teamspeak
+install_path="/usr/share/teamspeak3-server"
+
 # create variables for db path in docker container
-db_path="/usr/share/teamspeak3-server/sql/ts3server.sqlitedb"
+db_path="$install_path/sql/ts3server.sqlitedb"
 
 # if db DOES NOT exist in docker container and db DOES exist on /config then symlink to db
 if [ ! -f $db_path ] && [ -f /config/ts3server.sqlitedb ]
@@ -27,4 +30,4 @@ fi
 cd /usr/share/teamspeak3-server/sql/
 
 # run teamspeak server
-/usr/bin/teamspeak3-server logpath=/config dbsqlpath=/usr/share/teamspeak3-server/sql/
+/usr/bin/teamspeak3-server logpath=/config dbsqlpath=/usr/share/teamspeak3-server/sql/ licensepath=/config
