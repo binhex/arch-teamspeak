@@ -1,5 +1,5 @@
 FROM binhex/arch-base:2015062300
-MAINTAINER binhex
+MAINTAINER kahatie
 
 # additional files
 ##################
