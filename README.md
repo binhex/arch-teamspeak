@@ -5,7 +5,7 @@ TeamSpeak - http://www.teamspeak.com/
 
 Latest stable Teamspeak from Arch Linux AUR using Packer to compile.
 
-fork form binhex/arch-teamspeak
+Fork form binhex/arch-teamspeak
 
 **Pull image**
 
