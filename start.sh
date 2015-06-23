@@ -6,6 +6,9 @@ install_path="/usr/share/teamspeak3-server"
 # create variables for db path in docker container
 db_path="$install_path/sql/ts3server.sqlitedb"
 
+# create variables for files path in docker container
+files_path="$install_path/files/"
+
 # if db DOES NOT exist in docker container and db DOES exist on /config then symlink to db
 if [ ! -f $db_path ] && [ -f /config/ts3server.sqlitedb ]
 then
@@ -25,6 +28,10 @@ then
     rm $db_path
     ln -s /config/ts3server.sqlitedb $db_path
 fi
+
+# files data
+rm $files_path
+ln -s /config/files $files_path
 
 # change dir to sql files
 cd /usr/share/teamspeak3-server/sql/
