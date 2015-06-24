@@ -7,8 +7,8 @@ pacman -Sy --noconfirm
 source /root/packer.sh
 
 # set permissions
-chown -R nobody:users /usr/bin/teamspeak3-server /usr/share/teamspeak3-server /var/lib/teamspeak3-server/
-chmod -R 775 /usr/bin/teamspeak3-server /usr/share/teamspeak3-server /var/lib/teamspeak3-server/
+chown -R nobody:users /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/ /var/lib/teamspeak3-server/
+chmod -R 775 /usr/bin/teamspeak3-server /usr/share/teamspeak3-server/sql/ /var/lib/teamspeak3-server/
 
 # cleanup
 yes|pacman -Scc
