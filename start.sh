@@ -33,20 +33,20 @@ fi
 # same for files folder used for files transfet
 
 # if files DOES NOT exist in docker container and files DOES exist on /config then symlink to files
-if [ ! -f $files_path ] && [ -f /config/files ]
+if [ ! -d $files_path ] && [ -d /config/files ]
 then
     ln -s /config/files $files_path
 fi
 
 # if files DOES exist in docker container and DOES NOT exist on /config then move to /config and symlink to files on /config
-if [ -f $files_path ] && [ ! -f /config/files ]
+if [ -d $files_path ] && [ ! -d /config/files ]
 then
     mv $files_path /config/files
     ln -s /config/files $files_path
 fi
 
 # if files DOES exist in docker container and DOES exist on /config then delete files in container and symlink to files on /config
-if [ -f $files_path ] && [ -f /config/files ]
+if [ -d $files_path ] && [ -d /config/files ]
 then
     rm -rf $files_path
     ln -s /config/files $files_path
