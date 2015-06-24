@@ -48,7 +48,7 @@ fi
 # if files DOES exist in docker container and DOES exist on /config then delete files in container and symlink to files on /config
 if [ -f $files_path ] && [ -f /config/files ]
 then
-    rm $files_path
+    rm -rf $files_path
     ln -s /config/files $files_path
 fi
 
