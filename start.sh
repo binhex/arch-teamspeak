@@ -4,7 +4,7 @@
 install_path="/usr/share/teamspeak3-server"
 
 # create variables for db path in docker container
-db_path="$install_path/ts3server.sqlitedb"
+db_path="$install_path/sql/ts3server.sqlitedb"
 
 # create variables for files path in docker container
 files_path="$install_path/files"
@@ -54,7 +54,7 @@ fi
 
 
 # change dir to sql files
-cd /usr/share/teamspeak3-server/
+cd /usr/share/teamspeak3-server/sql/
 
 # run teamspeak server
-/usr/bin/teamspeak3-server logpath=/config dbsqlpath=/usr/share/teamspeak3-server/ licensepath=/config
+/usr/bin/teamspeak3-server logpath=/config dbsqlpath=/usr/share/teamspeak3-server/sql/ licensepath=/config
