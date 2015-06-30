@@ -5,7 +5,10 @@ TeamSpeak - http://www.teamspeak.com/
 
 Latest stable Teamspeak from Arch Linux AUR using Packer to compile.
 
-Fork form binhex/arch-teamspeak
+Fork form binhex/arch-teamspeak thx to him
+
+just add filetransfert floder in config directory 
+for esay backup it and esay move it to another disk
 
 **Pull image**
 
