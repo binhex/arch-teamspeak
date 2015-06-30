@@ -5,16 +5,21 @@ TeamSpeak - http://www.teamspeak.com/
 
 Latest stable Teamspeak from Arch Linux AUR using Packer to compile.
 
+Fork form binhex/arch-teamspeak thx to him
+
+just add filetransfert floder in config directory 
+for esay backup it and esay move it to another disk
+
 **Pull image**
 
 ```
-docker pull binhex/arch-teamspeak
+docker pull kahatie/arch-teamspeak
 ```
 
 **Run container**
 
 ```
-docker run -d --net="host" --name=<container name> -v <path for config files>:/config -v /etc/localtime:/etc/localtime:ro binhex/arch-teamspeak
+docker run -d --net="host" --name=<container name> -v <path for config files>:/config -v /etc/localtime:/etc/localtime:ro kahatie/arch-teamspeak
 ```
 
 Please replace all user variables in the above command defined by <> with the correct values.
