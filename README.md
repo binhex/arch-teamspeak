@@ -40,4 +40,4 @@ docker run -d \
 
 To authenticate use the privileged key shown in /config/supervisord.log
 
-[Support forum](http://lime-technology.com/forum/index.php?topic=38055.0)
+[Support forum](http://lime-technology.com/forum/index.php?topic=45849.0)
