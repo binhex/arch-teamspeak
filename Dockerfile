@@ -5,16 +5,16 @@ MAINTAINER binhex
 ##################
 
 # add supervisor conf file for app
-ADD *.conf /etc/supervisor/conf.d/
+ADD setup/*.conf /etc/supervisor/conf.d/
 
 # add teamspeak script for application (custom script required to cd to sql lib)
-ADD start.sh /home/nobody/start.sh
+ADD setup/start.sh /home/nobody/start.sh
 
 # add install bash script
-ADD install.sh /root/install.sh
+ADD setup/install.sh /root/install.sh
 
 # add packer bash script
-ADD packer.sh /root/packer.sh
+ADD setup/packer.sh /root/packer.sh
 
 # install app
 #############
@@ -29,8 +29,8 @@ RUN chmod +x /root/*.sh /home/nobody/*.sh && \
 # map /config to host defined config path (used to store configuration from app)
 VOLUME /config
 
-# run supervisor
-################
+# set permissions
+#################
 
-# run supervisor
-CMD ["supervisord", "-c", "/etc/supervisor.conf", "-n"]
+# run script to set uid, gid and permissions
+CMD ["/bin/bash", "/root/init.sh"]

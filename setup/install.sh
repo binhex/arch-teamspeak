@@ -9,10 +9,6 @@ pacman -Syu --ignore filesystem --noconfirm
 # call aur packer script
 source /root/packer.sh
 
-# set permissions
-chown -R nobody:users /usr/bin/ts3server /usr/share/teamspeak3-server/sql/ /var/lib/teamspeak3-server/
-chmod -R 775 /usr/bin/ts3server /usr/share/teamspeak3-server/sql/ /var/lib/teamspeak3-server/
-
 # cleanup
 yes|pacman -Scc
 rm -rf /usr/share/locale/*
