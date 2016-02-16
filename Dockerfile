@@ -7,17 +7,11 @@ MAINTAINER binhex
 # add supervisor conf file for app
 ADD setup/*.conf /etc/supervisor/conf.d/
 
-# add teamspeak script for application (custom script required to cd to sql lib)
-ADD setup/start.sh /home/nobody/start.sh
-
 # add install bash script
-ADD setup/install.sh /root/install.sh
+ADD setup/root/*.sh /root/
 
-# add bash scripts to set uid and gid and then set permissions
-ADD setup/init.sh /root/init.sh
-
-# add packer bash script
-ADD setup/packer.sh /root/packer.sh
+# add teamspeak script for application (custom script required to cd to sql lib)
+ADD setup/nobody/*.sh /home/nobody/
 
 # install app
 #############
