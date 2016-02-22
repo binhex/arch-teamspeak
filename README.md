@@ -1,6 +1,6 @@
 **Application**
 
-[TeamSpeakl](http://www.teamspeak.com/)
+[TeamSpeak3](http://www.teamspeak.com/)
 
 **Description**
 
