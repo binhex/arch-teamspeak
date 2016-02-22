@@ -30,4 +30,4 @@ fi
 cd /usr/share/teamspeak3-server/sql/
 
 # run teamspeak server
-/usr/bin/ts3server logpath=/config dbsqlpath=/usr/share/teamspeak3-server/sql/ licensepath=/config
+/usr/bin/ts3server logpath=/config/ dbsqlpath=/usr/share/teamspeak3-server/sql/ licensepath=/config/
