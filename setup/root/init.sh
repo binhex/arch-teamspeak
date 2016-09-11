@@ -44,4 +44,4 @@ chmod -R 775 /usr/bin/ts3server /usr/share/teamspeak3-server/sql/ /var/lib/teams
 echo "[info] Starting Supervisor..."
 
 # run supervisor
-"/usr/bin/supervisord" -c "/etc/supervisor.conf" -n
+exec /usr/bin/supervisord -c /etc/supervisor.conf -n
