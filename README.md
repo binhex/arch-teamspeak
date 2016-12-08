@@ -8,7 +8,7 @@ TeamSpeak is proprietary voice-over-Internet Protocol (VoIP) software that allow
 
 **Build notes**
 
-Latest stable TeamSpeak release from Arch Linux AUR using Packer to compile.
+Latest stable TeamSpeak release from Arch Linux AUR.
 
 **Usage**
 ```
