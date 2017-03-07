@@ -17,6 +17,7 @@ docker run -d \
     --name=<container name> \
     -v <path for config files>:/config \
     -v /etc/localtime:/etc/localtime:ro \
+    -e UMASK=<umask for created files> \
     -e PUID=<uid for user> \
     -e PGID=<gid for user> \
     binhex/arch-teamspeak
@@ -35,6 +36,7 @@ docker run -d \
     --name=teamspeak \
     -v /apps/docker/teamspeak:/config \
     -v /etc/localtime:/etc/localtime:ro \
+    -e UMASK=000 \
     -e PUID=0 \
     -e PGID=0 \
     binhex/arch-teamspeak
