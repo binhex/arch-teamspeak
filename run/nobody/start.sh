@@ -31,9 +31,8 @@ if [ ! -f "${sqlitedb_config}" ]; then
 	# if teamspeak sqlitedb file exists in container then rename
 	if [[ -f "sqlitedb_container" && ! -L "sqlitedb_container" ]]; then
 		mv "${sqlitedb_container}" "${sqlitedb_container}-backup"
+		cp "${sqlitedb_container}-backup" "${sqlitedb_config}"
 	fi
-
-	cp "${sqlitedb_container}-backup" "${sqlitedb_config}"
 
 else
 
@@ -54,9 +53,8 @@ if [ ! -d "${virtualserver_config}" ]; then
 	# if teamspeak virtual server folder exists in container then rename
 	if [[ -d "virtualserver_container" && ! -L "virtualserver_container" ]]; then
 		mv "${virtualserver_container}" "${virtualserver_container}-backup"
+		cp -R "${virtualserver_container}-backup" "${virtualserver_config}"
 	fi
-
-	cp -R "${virtualserver_container}-backup" "${virtualserver_config}"
 
 else
 
