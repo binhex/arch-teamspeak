@@ -50,8 +50,8 @@ source /root/aur.sh
 # create file with contets of here doc
 cat <<'EOF' > /tmp/permissions_heredoc
 # set permissions inside container
-chown -R "${PUID}":"${PGID}" /usr/bin/ts3server /usr/share/teamspeak3-server/sql/ /var/lib/teamspeak3-server/ /home/nobody
-chmod -R 775 /usr/bin/ts3server /usr/share/teamspeak3-server/sql/ /var/lib/teamspeak3-server/ /home/nobody
+chown -R "${PUID}":"${PGID}" /usr/bin/ts3server /usr/share/teamspeak3-server/sql/ /home/nobody
+chmod -R 775 /usr/bin/ts3server /usr/share/teamspeak3-server/sql/ /home/nobody
 
 EOF
 

@@ -68,4 +68,4 @@ fi
 ln -fs "${virtualserver_config}" "${virtualserver_container}"
 
 # run teamspeak server
-cd "${install_path}/sql/" && /usr/bin/ts3server logpath=/config/ dbsqlpath=/usr/share/teamspeak3-server/sql/ licensepath=/config/
+cd "${install_path}/sql/" && /usr/bin/ts3server logpath=/config/ dbsqlpath=/usr/share/teamspeak3-server/sql/ licensepath=/config/ license_accepted=1
