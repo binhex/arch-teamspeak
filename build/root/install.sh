@@ -3,6 +3,13 @@
 # exit script if return code != 0
 set -e
 
+# resetting to live repo and using pacman for this app.
+echo 'Server = http://mirror.bytemark.co.uk/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+echo 'Server = http://archlinux.mirrors.uk2.net/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+
+# sync package databases for pacman
+pacman -Syyu --noconfirm
+
 # build scripts
 ####
 
@@ -19,7 +26,7 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /root/
 ####
 
 # define pacman packages
-pacman_packages="git"
+pacman_packages="git teamspeak3-server"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -39,7 +46,7 @@ source /root/aor.sh
 ####
 
 # define aur packages
-aur_packages="teamspeak3-server"
+aur_packages=""
 
 # call aur install script (arch user repo)
 source /root/aur.sh
@@ -48,7 +55,7 @@ source /root/aur.sh
 ####
 
 # define comma separated list of paths 
-install_paths="/usr/share/teamspeak3-server/sql,/home/nobody"
+install_paths="/usr/share/teamspeak3-server,/home/nobody"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"
