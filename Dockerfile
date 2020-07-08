@@ -13,6 +13,9 @@ ADD build/root/*.sh /root/
 # add run bash script
 ADD run/nobody/*.sh /home/nobody/
 
+# add pre-configured config files for teamspeak
+ADD config/nobody/ /home/nobody/
+
 # install app
 #############
 

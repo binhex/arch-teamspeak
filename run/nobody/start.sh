@@ -3,6 +3,12 @@
 # create variables for installation path of teamspeak
 install_path="/usr/share/teamspeak3-server"
 
+# create variables for location of config file on /config
+teamspeak_config="/config/teamspeak/config/ts3server.ini"
+
+# create variables for location of default config file
+teamspeak_default_config="/home/nobody/ts3server.ini"
+
 # create variable for path that stores the virtual server
 virtualserver_container="${install_path}/sql/files"
 
@@ -15,16 +21,10 @@ sqlitedb_container="${install_path}/sql/ts3server.sqlitedb"
 # create variables for db path on /config
 sqlitedb_config="/config/sql/ts3server.sqlitedb"
 
-# temp hack to move existing db to new path
-if [ -f "/config/ts3server.sqlitedb" ]; then
-	mkdir -p "/config/sql"
-	mv /config/ts3server.sqlitedb* /config/sql/
-fi
-
 # if teamspeak sqlitedb file doesnt exist in /config/sql/ then copy default and symlink back (soft linked)
 if [ ! -f "${sqlitedb_config}" ]; then
 
-	echo "[info] teamspeak sqlitedb file doesnt exist, copying default to /config/..."
+	echo "[info] teamspeak sqlitedb file doesnt exist, copying default to '${sqlitedb_config}'..."
 
 	mkdir -p "/config/sql"
 
@@ -46,7 +46,7 @@ ln -fs "${sqlitedb_config}" "${sqlitedb_container}"
 # if teamspeak virtual server folder doesnt exist on /config then copy default and symlink back (soft linked)
 if [ ! -d "${virtualserver_config}" ]; then
 
-	echo "[info] teamspeak virtual server folder doesnt exist, copying default to /config/..."
+	echo "[info] teamspeak virtual server folder doesnt exist, copying default to '${virtualserver_config}'..."
 
 	mkdir -p "${virtualserver_config}"
 
@@ -65,5 +65,16 @@ fi
 # create soft link to virtual server folder
 ln -fs "${virtualserver_config}" "${virtualserver_container}"
 
+# if teamspeak config file doesnt exist in /config/teamspeak/config/ then copy default
+if [ ! -f "${teamspeak_config}" ]; then
+
+	echo "[info] teamspeak config file doesnt exist, copying default to '${teamspeak_config}'..."
+	mkdir -p "/config/teamspeak/config"
+
+	cp "${teamspeak_default_config}" "${teamspeak_config}"
+
+fi
+
 # run teamspeak server
-cd "${install_path}/sql/" && /usr/bin/ts3server logpath=/config/ dbsqlpath=/usr/share/teamspeak3-server/sql/ licensepath=/config/ license_accepted=1
+mkdir -p /config/teamspeak/logs /config/teamspeak/license /config/teamspeak/lists
+cd "${install_path}/sql/" && /usr/bin/ts3server inifile="${teamspeak_config}" license_accepted=1
