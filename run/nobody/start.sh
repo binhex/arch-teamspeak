@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/dumb-init /bin/bash
 
 # create variables for installation path of teamspeak
 install_path="/usr/share/teamspeak3-server"
